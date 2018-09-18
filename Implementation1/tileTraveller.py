@@ -43,7 +43,7 @@ while x != 3 or y != 1:
 		check_directions = "ns"
 	elif x == 1 and y == 3:
 		print("(E)ast or (S)outh.")
-		check_directions = "se"
+		check_directions = "es"
 	elif x == 2 and y == 3:
 		print("(E)ast or (W)est.")
 		check_directions = "ew"
@@ -59,6 +59,7 @@ while x != 3 or y != 1:
 	while not direction_str in check_directions:
 		print("Not a valid direction!")
 		direction_str = input("Direction: ")
+		direction_str = direction_str.lower()
 	
 	# Change position based on input
 	if direction_str == "n":
