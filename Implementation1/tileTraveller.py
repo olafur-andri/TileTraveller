@@ -55,16 +55,17 @@ while x != 3 or y != 1:
 	direction_str = input("Direction: ")
 	direction_str = direction_str.lower()
 
-	if direction_str in check_directions:
-		# Change direction based on input
-		if direction_str == "n":
-			y += 1
-		elif direction_str == "e":
-			x += 1
-		elif direction_str == "s":
-			y -= 1
-		elif direction_str == "w":
-			x -= 1
-	else:
-		# Incorrect input
+	# Wait for valid directions from user
+	while not direction_str in check_directions:
 		print("Not a valid direction!")
+		direction_str = input("Direction: ")
+	
+	# Change position based on input
+	if direction_str == "n":
+		y += 1
+	elif direction_str == "e":
+		x += 1
+	elif direction_str == "s":
+		y -= 1
+	elif direction_str == "w":
+		x -= 1
