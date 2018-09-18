@@ -57,7 +57,14 @@ while x != 3 or y != 1:
 
 	if direction_str in check_directions:
 		# Change direction based on input
-		
+		if direction_str == "n":
+			y += 1
+		elif direction_str == "e":
+			x += 1
+		elif direction_str == "s":
+			y -= 1
+		elif direction_str == "w":
+			x -= 1
 	else:
 		# Incorrect input
 		print("Not a valid direction!")
