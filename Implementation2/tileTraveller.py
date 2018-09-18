@@ -1,4 +1,5 @@
 """
+LINK TO GITHUB: https://github.com/olafur-andri/TileTraveller	
 	1. Which implementation was easier and why?
 
 Naturally, the second implementation was easier because I used functions to divide

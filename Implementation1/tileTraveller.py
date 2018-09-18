@@ -1,4 +1,5 @@
 """
+LINK TO GITHUB: https://github.com/olafur-andri/TileTraveller	
 Algorithm:
 
 Byrja að búa til breytur x og y sem tákna staðsetninguna á kortinu, x = 1 og y = 1
