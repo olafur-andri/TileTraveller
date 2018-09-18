@@ -51,4 +51,8 @@ while x != 3 or y != 1:
 		print("(S)outh or (W)est.")
 		check_directions = "sw"
 
+	# Take input
+	direction_str = input("Direction: ")
+	direction_str = direction_str.lower()
+
 	
