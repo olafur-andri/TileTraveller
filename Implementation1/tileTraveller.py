@@ -1,7 +1,7 @@
 """
 Algorithm:
 
-Byrja að setja breytu x og y sem 1
+Byrja að búa til breytur x og y sem tákna staðsetninguna á kortinu, x = 1 og y = 1
 
 Á meðan spilari er ekki á reit 3,1:
 	Ná hvaða leiðum spilarinn má fara (með if og elif)
@@ -15,3 +15,8 @@ Byrja að setja breytu x og y sem 1
 Prenta út “Victory!”
 """
 
+x = 1
+y = 1
+
+while x != 3 or y != 1:
+	# Get all possible inputs
