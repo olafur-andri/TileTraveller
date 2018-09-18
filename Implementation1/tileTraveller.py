@@ -42,7 +42,7 @@ while x != 3 or y != 1:
 		print("(N)orth or (S)outh.")
 		check_directions = "ns"
 	elif x == 1 and y == 3:
-		print("(S)outh or (E)ast.")
+		print("(E)ast or (S)outh.")
 		check_directions = "se"
 	elif x == 2 and y == 3:
 		print("(E)ast or (W)est.")
@@ -69,3 +69,5 @@ while x != 3 or y != 1:
 		y -= 1
 	elif direction_str == "w":
 		x -= 1
+
+print("Victory!")
