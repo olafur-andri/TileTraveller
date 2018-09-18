@@ -55,4 +55,9 @@ while x != 3 or y != 1:
 	direction_str = input("Direction: ")
 	direction_str = direction_str.lower()
 
-	
+	if direction_str in check_directions:
+		# Change direction based on input
+		
+	else:
+		# Incorrect input
+		print("Not a valid direction!")
