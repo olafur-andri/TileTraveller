@@ -4,10 +4,28 @@
 Naturally, the second implementation was easier because I used functions to divide
 the problem into smaller problems which is way easier than just dealing with one
 big problem. The main body of the program also became way more comprehensible so
-debugging it if things didn't go well was simpler.
+debugging it if things didn't go correctly was simpler.
+
+	2. Which implementation is more readable and why?
+
+The second implemenation is more readable because the function names and the docstrings
+provided for each function describes better what it is that the program does, rather
+than having comments all over the place. The latter code is more "broken up" than the
+former and is more readable as a consequence of that.
+
+	3. Which problems in the first implementations were you able to solve with the latter
+     implementation?
+
+The only problems that we fixed in the latter code was that we made the code more
+readable and comprehensible. I think that the way that me and my group laid out
+the algorithm for this problem gave us a comprehensible way to write the code, even
+if it was without functions. Using functions was, though, a lot better, no question.
 """
 
 def get_possible_directions(x, y):
+  """
+  Gets all possible directions the player can go (n/e/s/w) from x and y position
+  """
   possible_directions = ""
   check_directions = ""
   
@@ -42,10 +60,16 @@ def get_possible_directions(x, y):
   return possible_directions, check_directions
 
 def get_input():
+  """
+    Gets the input (n/s/e/w) from the user
+  """
   user_input = input("Direction: ")
   return user_input.lower()
 
 def change_position(x, y, user_input):
+  """
+    Changes the current position, based on the original position and the input from the user
+  """
   if user_input == "n":
 	  y += 1
   elif user_input == "e":
