@@ -1,35 +1,13 @@
-"""
-LINK TO GITHUB: https://github.com/olafur-andri/TileTraveller	
-	1. Which implementation was easier and why?
+# LINK TO GITHUB: https://github.com/olafur-andri/TileTraveller	
 
-Naturally, the second implementation was easier because I used functions to divide
-the problem into smaller problems which is way easier than just dealing with one
-big problem. The main body of the program also became way more comprehensible so
-debugging it if things didn't go correctly was simpler.
-
-	2. Which implementation is more readable and why?
-
-The second implemenation is more readable because the function names and the docstrings
-provided for each function describes better what it is that the program does, rather
-than having comments all over the place. The latter code is more "broken up" than the
-former and is more readable as a consequence of that.
-
-	3. Which problems in the first implementations were you able to solve with the latter
-     implementation?
-
-The only problems that we fixed in the latter code was that we made the code more
-readable and comprehensible. I think that the way that me and my group laid out
-the algorithm for this problem gave us a comprehensible way to write the code, even
-if it was without functions. Using functions was, though, a lot better, no question.
-"""
-
-def get_possible_directions(x, y):
+def get_possible_directions_and_flip(x, y):
   """
   Gets all possible directions the player can go (n/e/s/w) from x and y position
   """
   possible_directions = ""
   check_directions = ""
-  
+  can_flip = False
+
   if x == 1 and y == 1:
 	  possible_directions = "(N)orth."
 	  check_directions = "n"
@@ -42,12 +20,15 @@ def get_possible_directions(x, y):
   elif x == 1 and y == 2:
 	  possible_directions = "(N)orth or (E)ast or (S)outh."
 	  check_directions = "nes"
+	  can_flip = True
   elif x == 2 and y == 2:
 	  possible_directions = "(S)outh or (W)est."
 	  check_directions = "sw"
+	  can_flip = True
   elif x == 3 and y == 2:
 	  possible_directions = "(N)orth or (S)outh."
 	  check_directions = "ns"
+	  can_flip = True
   elif x == 1 and y == 3:
 	  possible_directions = "(E)ast or (S)outh."
 	  check_directions = "es"
@@ -58,9 +39,9 @@ def get_possible_directions(x, y):
 	  possible_directions = "(S)outh or (W)est."
 	  check_directions = "sw"
   
-  return possible_directions, check_directions
+  return possible_directions, check_directions, can_flip
 
-def get_input():
+def get_input_direction():
   """
     Gets the input (n/s/e/w) from the user
   """
@@ -82,19 +63,33 @@ def change_position(x, y, user_input):
 	
   return x, y
 
+def flip_coin(coin_count):
+	""" Gives the user the ability to gain a coin by pulling a lever. Returns the new coin_count """
+	user_input = input("Pull a lever (y/n): ")
+
+	if user_input.lower() == "y":
+		coin_count += 1
+		print("You received 1 coins, your total is now {}.".format(coin_count))
+
+	return coin_count
+
 x = 1
 y = 1
+coin_count = 0
 
 while x != 3 or y != 1:
-	possible_directions, check_directions = get_possible_directions(x, y)
+	possible_directions, check_directions, can_flip = get_possible_directions_and_flip(x, y)
 	print("You can travel: {}".format(possible_directions))
 
-	user_input = get_input()
+	# Check if user can flip a coin
+	if can_flip:
+		coin_count = flip_coin(coin_count)
 
 	# Wait for valid directions from user
+	user_input = get_input_direction()
 	while not user_input in check_directions:
 		print("Not a valid direction!")
-		user_input = get_input()
+		user_input = get_input_direction()
 	
 	x, y = change_position(x, y, user_input)
 	
